@@ -48,4 +48,19 @@ public class MainActivity extends AppCompatActivity {
             }
         });
     }
+    public void listUsers(){
+        ListUsersService listUsersService = retrofit.create(ListUsersService.class);
+        Call<List<UserModel>> listUsers = listUsersService.listUsers();
+        listUsers.enqueue(new Callback<List<UserModel>>() {
+            @Override
+            public void onResponse(Call<List<UserModel>> call, Response<List<UserModel>> response) {
+                List<UserModel> listUser = response.body();
+                Toast.makeText(MainActivity.this, ""+listUser.size(), Toast.LENGTH_SHORT).show();
+            }
+            @Override
+            public void onFailure(Call<List<UserModel>> call, Throwable t) {
+
+            }
+        });
+    }
 }
