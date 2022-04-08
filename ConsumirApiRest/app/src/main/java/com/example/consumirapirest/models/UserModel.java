@@ -1,6 +1,6 @@
 package com.example.consumirapirest.models;
 
-public class LoginModel {
+public class UserModel {
     private String identification,fullname, telephone, email;
 
     public String getIdentification() {
